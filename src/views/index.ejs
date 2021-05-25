@@ -1,0 +1,107 @@
+
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" 
+     integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
+     crossorigin="anonymous">
+     <link rel="stylesheet" href="../CSS/styles.css"> 
+</head>
+
+
+<body style=" background: #0f0c29;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #24243e, #302b63, #0f0c29); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    ">
+   
+
+    <br>
+    <br>
+    <br>
+    
+    <div class="col-md-5 offset-md-4" >
+        <h1 style="color:bisque" >INGRESE DATOS A LA DB</h1>
+    </div>
+    
+    
+
+    <br>
+    <br>
+    <br>
+
+    
+    <div class="container">
+        <div class="row">
+            <!-- formulario -->
+            <div class="col-md-5 offset-md-3" >
+            <div class="card">
+                <div class="card-body">
+                    <form action="/add " method="POST">
+                        <div class="form-group">
+                            <input type="text" name="nombre" placeholder="nombre y apellido" class="form-control" >
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="apellido" placeholder="telefono" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <textarea name="comentario"  cols="80" class="form-control" placeholder="comentario"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Enviar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <br>
+    <br>
+    <br>
+  
+
+    <!-- lista  -->
+    <div class="col-md-5 offset-md-4" >
+   <div class="container">
+    <div class="col-md-7">
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th style="color: bisque;">N°</th>
+                    <th style="color: bisque;">Nombre y apellido</th>
+                    <th style="color: bisque;">Telefono</th>
+                    <th style="color: bisque;">Comentario</th>
+                </tr>
+
+            </thead>
+            <tbody>
+                
+                <% for (var i = 0; i < users.length; i++){ %>
+                    <tr>
+                        <td style="color: bisque;"> <%= i+1 %></td>
+                        <td style="color: bisque;"><%= users[i].nombre%></td>
+                        <td style="color: bisque;"><%= users[i].apellido%></td>
+                        <td style="color: bisque;"><%= users[i].comentario%></td>
+                        
+
+                        <td><a href="/Edit/<%=users[i]._id %>" class="btn btn-info" style="color: bisque;">Editar</a></td>
+                        <td><a href="/Eliminar/<%=users[i]._id %>" class="btn btn-danger">Eliminar</a></td>
+                    </tr>
+                    <% } %>
+            </tbody>
+        </table>
+    </div>
+    </div>
+</div>
+
+
+    
+</body>
+</html>
+          
+
+
+  
